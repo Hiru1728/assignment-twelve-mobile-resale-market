@@ -1,0 +1,21 @@
+[
+    {
+        "_id": "6380c90824e81fd13c7b6f11",
+        "company": "samsung",
+        "ResalePrice": "$1,258.71",
+        "OrginalPrice": "$2,296.14",
+        "img": "http://placehold.it/32x32",
+        "name": "Margery Garrett",
+        "location": "693 Maujer Street, Cecilia, Ohio, 9532",
+        "registered": "2018-03-25T10:00:12 -06:00"
+    },
+    {
+        "_id": "6380c9080dda68fa29409a12",
+        "ResalePrice": "$3,720.79",
+        "OrginalPrice": "$1,102.94",
+        "img": "http://placehold.it/32x32",
+        "name": "Cannon Gilmore",
+        "location": "638 Orange Street, Brandermill, Hawaii, 8809",
+        "registered": "2020-10-26T07:53:16 -06:00"
+    }
+]
