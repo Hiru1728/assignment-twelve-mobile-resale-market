@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
     const menuItems = <React.Fragment>
         <li><Link to='/'>Home</Link></li>
-        <li><Link>Login</Link></li>
+        <li><Link to='/login'>Login</Link></li>
     </React.Fragment>
 
 
@@ -19,7 +19,7 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link className="btn btn-ghost normal-case text-xl">daisyUI</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-xl">SHM</Link>
             </div>
 
             <div className="navbar-end ">
