@@ -1,17 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit
     } = useForm();
+    const { signIn, loading } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     const [loginUserEmail, setLoginUserEmail] = useState('');
 
     const handleLogin = (data) => {
         console.log(data);
         setLoginError('');
-
+        signIn(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(errors => {
+                console.log(errors);
+                setLoginError(errors.message);
+            })
     }
 
     return (
@@ -52,7 +63,7 @@ const Login = () => {
                 </form>
                 <p>New to Second Hand Mobile Market<Link className='text-secondary' to='/signup'>Create New Account</Link></p>
                 <div className='divider'>OR</div>
-                <button className='btn btn-outline btn-accent w-full'>CONTINUE WITH GOOGLE</button>
+                <SocialLogin></SocialLogin>
             </div>
         </div>
     );
