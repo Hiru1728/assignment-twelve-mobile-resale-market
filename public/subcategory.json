@@ -1,0 +1,74 @@
+[
+    {
+        "_id": "6380c90824e81fd13c7b6f11",
+        "categoryId": "01",
+        "subcategoryName": "Samsung Galaxy S21",
+        "ResalePrice": "$1,258.71",
+        "OriginalPrice": "$2,296.14",
+        "img": "https://sa.mtajrs.com/wp-content/uploads/2021/03/M18595J.jpg",
+        "location": "Chattogram",
+        "registered": "2018-03-25T10:00:12 -06:00",
+        "years of use": "2 years",
+        "sallerName": "Rakib"
+    },
+    {
+        "_id": "6380c9080dda68fa29409a12",
+        "categoryId": "01",
+        "subcategoryName": "Samsung Galaxy A52",
+        "ResalePrice": "$1,000.79",
+        "OriginalPrice": "$2,112.94",
+        "img": "https://www.mobiledor.com/wp-content/uploads/Samsung-Galaxy-A52.webp",
+        "location": "Fani",
+        "registered": "2020-10-26T07:53:16 -06:00",
+        "years of use": "1 year",
+        "sallerName": "wahab"
+    },
+    {
+        "_id": "6380c9080dda68fa29409a12",
+        "categoryId": "02",
+        "subcategoryName": "Oppo A55",
+        "ResalePrice": "$200.79",
+        "OriginalPrice": "$500.94",
+        "img": "https://image.oppo.com/content/dam/oppo/product-asset-library/specs/a55/black-green-blue-1920.jpg",
+        "location": "Comilla",
+        "registered": "2020-10-26T07:53:16 -06:00",
+        "years of use": "1.5 years",
+        "sallerName": "Joy"
+    },
+    {
+        "_id": "6380c9080dda68fa29409a12",
+        "categoryId": "02",
+        "subcategoryName": "Oppo A76",
+        "ResalePrice": "$400.79",
+        "OriginalPrice": "$1,102.94",
+        "img": "https://i0.wp.com/www.mobilebd.co/wp-content/uploads/2022/06/Oppo-A76-Official-Image-500x500.png",
+        "location": "Dhaka",
+        "registered": "2022-09-26T07:53:16 -06:00",
+        "years of use": "3 years",
+        "sallerName": "aditya"
+    },
+    {
+        "_id": "6380c9080dda68fa29409a12",
+        "categoryId": "03",
+        "subcategoryName": "Iphone 12",
+        "ResalePrice": "$550.79",
+        "OriginalPrice": "$1,102.94",
+        "img": "https://boxtechs.com.bd/wp-content/uploads/2022/06/refurb-iphone-12-black-2020_AV1.jpg",
+        "location": "khulna",
+        "registered": "2022-10-26T07:53:16 -06:00",
+        "years of use": "2 year",
+        "sallerName": "Rakib"
+    },
+    {
+        "_id": "6380c9080dda68fa29409a12",
+        "categoryId": "03",
+        "subcategoryName": "Iphone 13",
+        "ResalePrice": "$1,200.79",
+        "OriginalPrice": "$2,102.94",
+        "img": "https://pricemama.com.bd/wp-content/uploads/2021/11/apple-iphone-13-mini-01.jpg",
+        "location": "Chattogram",
+        "registered": "2021-10-26T07:53:16 -06:00",
+        "years of use": "1 year",
+        "sallerName": "Joy"
+    }
+]

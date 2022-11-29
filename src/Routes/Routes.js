@@ -1,4 +1,5 @@
 import Blog from "../Pages/Blog/Blog";
+import SubCategoryProducts from "../Pages/Home/SubCategoryProduct/SubCategoryProducts";
 import Login from "../Pages/Login/Login";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/category/:id',
+                element: <SubCategoryProducts></SubCategoryProducts>,
+                loader: ({ params }) => fetch(` https://assignment-twelve-mobile-resale-market-server.vercel.app/category/${params.id}`)
             }
         ]
     }
