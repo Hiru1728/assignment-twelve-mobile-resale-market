@@ -106,7 +106,7 @@ const SignUp = () => {
                         </label>
                         <Controller
                             control={control}
-                            defaultValue={1}
+                            defaultValue={'seller'}
                             name="person"
                             render={({ onChange, value, name, ref }) => (
                                 <Select
@@ -114,7 +114,8 @@ const SignUp = () => {
                                     classNamePrefix="addl-class"
                                     options={options}
                                     value={options.find(c => c.value === value)}
-                                    onChange={val => onChange(val.value)}
+                                    onChange={val => onChange(<li>val.value</li>)}
+
                                 />
                             )}
                         />

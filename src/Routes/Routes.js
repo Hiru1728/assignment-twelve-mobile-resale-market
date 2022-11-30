@@ -1,6 +1,7 @@
 import Blog from "../Pages/Blog/Blog";
 import SubCategoryProducts from "../Pages/Home/SubCategoryProduct/SubCategoryProducts";
 import Login from "../Pages/Login/Login";
+import SignUp from "../SignUp/SignUp";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../Layout/Main");
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/signup',
+                element: <SignUp></SignUp>
             },
             {
                 path: '/blog',
