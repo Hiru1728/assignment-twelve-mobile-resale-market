@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom'
+import BookingModal from './BookingModal/BookingModal';
 import SubCategoryOption from './SubCategoryOption';
 
 
 const SubCategoryProducts = () => {
+    const [booking, setBooking] = useState(null);
     const mobiles = useLoaderData();
     console.log(mobiles);
 
@@ -15,9 +17,17 @@ const SubCategoryProducts = () => {
                     mobiles.map(mobile => <SubCategoryOption
                         key={mobile._id}
                         mobile={mobile}
+                        setBooking={setBooking}
                     ></SubCategoryOption>)
                 }
             </div>
+            {
+                booking &&
+                <BookingModal
+                    booking={booking}
+                    setBooking={setBooking}
+                ></BookingModal>
+            }
         </div>
     );
 };

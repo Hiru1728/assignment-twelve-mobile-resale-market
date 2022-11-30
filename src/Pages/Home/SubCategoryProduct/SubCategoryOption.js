@@ -19,8 +19,8 @@ const SubCategoryOption = ({ mobile, setBooking }) => {
                     <p>{yearsOfUse}</p>
                     <h3>Seller Name : <strong>{sallerName}</strong></h3>
                     <div className="card-actions">
-                        <button className="btn btn-primary"><label
-                            onClick={() => setBooking(mobile)} htmlFor="booking-modal">Book Now</label></button>
+                        <button className="btn btn-primary"><label onClick={() => setBooking(mobile)}
+                            htmlFor="booking-modal">Book Now</label></button>
                     </div>
                 </div>
             </div>

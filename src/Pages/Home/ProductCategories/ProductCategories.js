@@ -6,6 +6,8 @@ const ProductCategories = () => {
     fetch(' https://assignment-twelve-mobile-resale-market-server.vercel.app/category')
         .then(res => res.json())
         .then(data => setCategories(data))
+
+
     return (
         <div>
             <h2 className='text-6xl font-bold text-center my-5'>Second hand Mobiles</h2>
