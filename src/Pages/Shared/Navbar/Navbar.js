@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import PrimaryButton from '../../../components/PrimaryButton/PrimaryButton';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import icon from '../../../assets/mobileicon-removebg-preview.png';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -35,6 +37,11 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
+                <div className="avatar">
+                    <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <Link to='/'><img src={icon} alt='mobile icon' /></Link>
+                    </div>
+                </div>
                 <Link to='/' className="btn btn-ghost normal-case text-xl">SHM</Link>
             </div>
 
@@ -44,7 +51,7 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link to='/blog' className="btn">Blog</Link>
+                <Link to='/blog'><PrimaryButton>Blog</PrimaryButton></Link>
             </div>
         </div>
     );

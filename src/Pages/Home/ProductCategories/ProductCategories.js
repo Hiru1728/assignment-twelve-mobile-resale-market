@@ -9,7 +9,7 @@ const ProductCategories = () => {
 
 
     return (
-        <div>
+        <div className='mb-5'>
             <h2 className='text-6xl font-bold text-center my-5'>Second hand Mobiles</h2>
             <p className='text-2xl text-center mb-3'>You can choose any Company mobiles</p>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>

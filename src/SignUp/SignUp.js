@@ -3,19 +3,20 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
+import useToken from '../hooks/useToken';
 import SocialLogin from '../Pages/Shared/SocialLogin/SocialLogin';
 
 const SignUp = () => {
     const { register, formState: { errors }, reset, handleSubmit } = useForm();
     const { createUser, upDateUser } = useContext(AuthContext);
     const [createdUserEmail, setCreatedUserEmail] = useState('');
-    // const [token] = useToken(createdUserEmail);
+    const [token] = useToken(createdUserEmail);
     const [signUpError, setSignUpError] = useState('');
     const navigate = useNavigate();
 
-    // if (token) {
-    //     navigate('/');
-    // }
+    if (token) {
+        navigate('/');
+    }
 
     const userOptions = [
         "Seller",
