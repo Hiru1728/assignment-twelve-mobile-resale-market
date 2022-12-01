@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
-import Select from "react-select";
 import { AuthContext } from '../contexts/AuthProvider';
+import SocialLogin from '../Pages/Shared/SocialLogin/SocialLogin';
 
 const SignUp = () => {
-    const { register, formState: { errors }, control, handleSubmit } = useForm();
+    const { register, formState: { errors }, reset, handleSubmit } = useForm();
     const { createUser, upDateUser } = useContext(AuthContext);
     const [createdUserEmail, setCreatedUserEmail] = useState('');
     // const [token] = useToken(createdUserEmail);
@@ -16,9 +17,9 @@ const SignUp = () => {
     //     navigate('/');
     // }
 
-    const options = [
-        { value: '1', label: 'Seller' },
-        { value: '2', label: 'Buyer' },
+    const userOptions = [
+        "Seller",
+        "Buyer"
     ];
 
     const handleSignUp = (data) => {
@@ -28,7 +29,7 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                alert('User Created Successfully.')
+                toast.success('User Created Successfully.')
                 const userInfo = {
                     displayName: data.name
                 }
@@ -58,6 +59,7 @@ const SignUp = () => {
             .then(data => {
                 console.log('Save User', data);
                 setCreatedUserEmail(email);
+                reset();
             })
     }
 
@@ -104,28 +106,25 @@ const SignUp = () => {
                         <label className="label">
                             <span className="label-text">Select Option</span>
                         </label>
-                        <Controller
-                            control={control}
-                            defaultValue={'seller'}
-                            name="person"
-                            render={({ onChange, value, name, ref }) => (
-                                <Select
-                                    inputRef={ref}
-                                    classNamePrefix="addl-class"
-                                    options={options}
-                                    value={options.find(c => c.value === value)}
-                                    onChange={val => onChange(<li>val.value</li>)}
+                        <select
+                            {...register("person")}
+                            className='select input-bordered w-full max-w-xs'
+                        >
+                            {
+                                userOptions.map((userOption, index) => <option
+                                    key={index}
+                                    value={userOption}
+                                >{userOption}</option>)
+                            }
 
-                                />
-                            )}
-                        />
+                        </select>
                     </div>
                     <input className='btn btn-accent mt-4 w-full' value='Sign Up' type="submit" />
                     {signUpError && <p className='text-red-600'>{signUpError}</p>}
                 </form>
                 <p>Already have an account <Link className='text-secondary' to='/login'>Please Login</Link></p>
                 <div className='divider'>OR</div>
-                <button className='btn btn-outline btn-accent w-full'>CONTINUE WITH GOOGLE</button>
+                <SocialLogin></SocialLogin>
             </div>
         </div>
     )

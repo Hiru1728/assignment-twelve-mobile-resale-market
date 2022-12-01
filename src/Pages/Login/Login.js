@@ -61,7 +61,7 @@ const Login = () => {
                         {loginError && <p>{loginError}</p>}
                     </div>
                 </form>
-                <p>New to Second Hand Mobile Market Create New Account<Link className='text-secondary' to='/signup'>Sign Up</Link></p>
+                <p>New to Second Hand Mobile Market Create New Account <Link className='text-secondary' to='/signup'>Sign Up</Link></p>
                 <div className='divider'>OR</div>
                 <SocialLogin></SocialLogin>
             </div>

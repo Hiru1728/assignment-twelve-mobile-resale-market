@@ -10,15 +10,17 @@ const AddProduct = () => {
 
     const imageHostKey = process.env.REACT_APP_imgbb_key;
 
+    console.log(imageHostKey);
+
     const navigate = useNavigate();
 
     const condition = [
-        "excelent",
-        "good",
-        "fair"
+        "Excelent",
+        "Good",
+        "Fair"
     ]
 
-    const handleAddDoctor = data => {
+    const handleAddProduct = data => {
         console.log(data.img[0]);
         const image = data.img[0];
         const formData = new FormData();
@@ -34,26 +36,30 @@ const AddProduct = () => {
                 console.log(imgData);
                 if (imgData.success) {
                     console.log(imgData.data.url);
-                    const doctor = {
+                    const product = {
                         name: data.name,
                         email: data.email,
-                        specialty: data.specialty,
+                        resalePrice: data.resalePrice,
                         image: imgData.data.url,
+                        originalPrice: data.originalPrice,
+                        conditionType: data.conditionType,
+                        mobileNumber: data.mobileNumber,
+                        customerLocation: data.customerLocation,
                     }
-                    // Save doctor information to the database
-                    fetch('https://doctors-portal-server-phi.vercel.app/doctors', {
+                    // console.log(product);
+                    fetch('https://assignment-twelve-mobile-resale-market-server.vercel.app/products', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
-                            authorization: `bearer ${localStorage.getItem('accessToken')}`
+                            // authorization: `bearer ${localStorage.getItem('accessToken')}`
                         },
-                        body: JSON.stringify(doctor)
+                        body: JSON.stringify(product)
                     })
                         .then(res => res.json())
                         .then(result => {
                             console.log(result);
                             toast.success(`${data.name} is added successfully`);
-                            navigate('/dashboard/managedoctors');
+                            navigate('/dashboard/manageproduct');
                         })
                 }
             })
@@ -61,8 +67,8 @@ const AddProduct = () => {
 
     return (
         <div className='w-96 p-7'>
-            <h2 className="text-4xl">Add A Doctor</h2>
-            <form onSubmit={handleSubmit(handleAddDoctor)}>
+            <h2 className="text-4xl">Add a Product</h2>
+            <form onSubmit={handleSubmit(handleAddProduct)}>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">Name</span>
@@ -88,10 +94,36 @@ const AddProduct = () => {
                 </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
-                        <span className="label-text">Specialty</span>
+                        <span className="label-text">Resale Price</span>
+                    </label>
+                    <input type="text"
+                        {...register("resalePrice", {
+                            required: "Resale Price is required",
+                        })}
+
+                        className="input input-bordered w-full max-w-xs" />
+                    {errors.resalePrice && <p className='text-red-500'>{errors.resalePrice.message}</p>}
+
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Original Price</span>
+                    </label>
+                    <input type="text"
+                        {...register("originalPrice", {
+                            required: "Original Price is required",
+                        })}
+
+                        className="input input-bordered w-full max-w-xs" />
+                    {errors.originalPrice && <p className='text-red-500'>{errors.originalPrice.message}</p>}
+
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Condition type</span>
                     </label>
                     <select
-                        {...register("specialty")}
+                        {...register("conditionType")}
                         className='select input-bordered w-full max-w-xs'>
                         {
                             condition.map((con, index) => <option
@@ -101,6 +133,32 @@ const AddProduct = () => {
                         }
 
                     </select>
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Mobile Number</span>
+                    </label>
+                    <input type="text"
+                        {...register("mobileNumber", {
+                            required: "Mobile number is required",
+                        })}
+
+                        className="input input-bordered w-full max-w-xs" />
+                    {errors.mobileNumber && <p className='text-red-500'>{errors.mobileNumber.message}</p>}
+
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Location</span>
+                    </label>
+                    <input type="text"
+                        {...register("customerLocation", {
+                            required: "Location is required",
+                        })}
+
+                        className="input input-bordered w-full max-w-xs" />
+                    {errors.customerLocation && <p className='text-red-500'>{errors.customerLocation.message}</p>}
+
                 </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
@@ -115,7 +173,7 @@ const AddProduct = () => {
                     {errors.img && <p className='text-red-500'>{errors.img.message}</p>}
 
                 </div>
-                <input className='btn btn-accent mt-4 w-full' value='Add Doctor' type="submit" />
+                <input className='btn btn-accent mt-4 w-full' value='Add Product' type="submit" />
 
             </form>
         </div>
