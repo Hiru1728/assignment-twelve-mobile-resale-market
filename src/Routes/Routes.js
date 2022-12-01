@@ -3,7 +3,7 @@ import Blog from "../Pages/Blog/Blog";
 import AddProduct from "../Pages/Dashboard/AddProduct/AddProduct";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import ManageProduct from "../Pages/Dashboard/ManageProduct/ManageProduct";
-import MyProduct from "../Pages/Dashboard/MyProduct/MyProduct";
+import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
 import SubCategoryProducts from "../Pages/Home/SubCategoryProduct/SubCategoryProducts";
 import Login from "../Pages/Login/Login";
 import SignUp from "../SignUp/SignUp";
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element: <MyProduct></MyProduct>
+                element: <MyOrders></MyOrders>
             },
             {
                 path: '/dashboard/allusers',
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
                 element: <AddProduct></AddProduct>
             },
             {
-                path: '/dashboard/manageproduct',
+                path: '/dashboard/myproduct',
                 element: <ManageProduct></ManageProduct>
             }
         ]

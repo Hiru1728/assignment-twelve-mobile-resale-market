@@ -3,7 +3,7 @@ import ProductCategorie from './ProductCategorie';
 
 const ProductCategories = () => {
     const [categories, setCategories] = useState([])
-    fetch(' https://assignment-twelve-mobile-resale-market-server.vercel.app/category')
+    fetch('https://assignment-twelve-mobile-resale-market-server.vercel.app/category')
         .then(res => res.json())
         .then(data => setCategories(data))
 

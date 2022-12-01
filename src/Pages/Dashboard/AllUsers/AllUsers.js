@@ -38,6 +38,7 @@ const AllUsers = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Peron</th>
                             <th>Admin</th>
                             <th>Delete</th>
                         </tr>
@@ -48,6 +49,7 @@ const AllUsers = () => {
                                 <th>{index + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
+                                <td>{user.person}</td>
                                 <td>
                                     {
                                         user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>
