@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
 import Loading from '../../Shared/Loading/Loading';
 
 const MyProducts = () => {
@@ -89,7 +90,16 @@ const MyProducts = () => {
                     </tbody>
                 </table>
             </div>
-
+            {
+                deletingProduct && <ConfirmationModal
+                    title={`Are you sure you want to delete`}
+                    message={`If you delete ${deletingProduct.name}. It cannot be undone.`}
+                    successAction={handleDeleteProduct}
+                    successButtonName="Delete"
+                    modalData={deletingProduct}
+                    closeModal={closeModal}
+                ></ConfirmationModal>
+            }
         </div>
     );
 };
