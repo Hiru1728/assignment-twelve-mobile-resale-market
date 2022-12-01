@@ -1,9 +1,7 @@
-import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-import Loading from '../../Shared/Loading/Loading';
 
 const AddProduct = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -51,7 +49,7 @@ const AddProduct = () => {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
-                            // authorization: `bearer ${localStorage.getItem('accessToken')}`
+                            authorization: `bearer ${localStorage.getItem('accessToken')}`
                         },
                         body: JSON.stringify(product)
                     })
@@ -59,7 +57,7 @@ const AddProduct = () => {
                         .then(result => {
                             console.log(result);
                             toast.success(`${data.name} is added successfully`);
-                            navigate('/dashboard/manageproduct');
+                            navigate('/dashboard/myproduct');
                         })
                 }
             })
