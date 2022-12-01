@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PrimaryButton from '../../../components/PrimaryButton/PrimaryButton';
 
 const ProductCategorie = ({ category }) => {
     const { picture, name, about, id } = category;
@@ -12,7 +13,7 @@ const ProductCategorie = ({ category }) => {
                 <h2 className="card-title">{name}</h2>
                 <p>{`${about}If you need Sumsung second hand phone. Click this Button`}</p>
                 <div className="card-actions">
-                    <Link to={`/category/${id}`}><button className="btn btn-primary">Click Here</button></Link>
+                    <Link to={`/category/${id}`}><PrimaryButton>Click Here</PrimaryButton></Link>
                 </div>
             </div>
         </div>

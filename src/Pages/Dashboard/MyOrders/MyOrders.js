@@ -10,18 +10,17 @@ const MyOrders = () => {
     const { data: bookings = [] } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
-            const res = await fetch(url);
+            const res = await fetch(url, {
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            });
             const data = await res.json();
             return data;
         }
     })
+    // console.log(bookings);
 
-    console.log(bookings);
-
-    // , {
-    //     headers: {
-    //         authorization: `bearer ${localStorage.getItem('accessToken')}`
-    //     }
 
     return (
         <div>
@@ -46,14 +45,14 @@ const MyOrders = () => {
                                 <td>{booking.ResalePrice}</td>
                                 <td>{booking.customerName}</td>
                                 <td>{booking.email}</td>
-                                {/* <td>
+                                <td>
                                     {
-                                        booking.price && !booking.paid && <Link to={`/dashboard/payment/${booking._id}`}><button className='btn btn-primary btn-sm'>Pay</button></Link>
+                                        booking.ResalePrice && !booking.paid && <Link to={`/dashboard/payment/${booking._id}`}><button className='btn btn-primary btn-sm'>Pay</button></Link>
                                     }
                                     {
-                                        booking.price && booking.paid && <span className='text-green-500'>Paid</span>
+                                        booking.ResalePrice && booking.paid && <span className='text-green-500'>Paid</span>
                                     }
-                                </td> */}
+                                </td>
                             </tr>)
                         }
                     </tbody>

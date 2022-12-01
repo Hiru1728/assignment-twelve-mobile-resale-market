@@ -7,7 +7,7 @@ import SubCategoryOption from './SubCategoryOption';
 const SubCategoryProducts = () => {
     const [booking, setBooking] = useState(null);
     const mobiles = useLoaderData();
-    console.log(mobiles);
+    // console.log(mobiles);
 
     return (
         <div className='mb-5'>

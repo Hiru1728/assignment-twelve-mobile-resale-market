@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast'
+import Loading from '../../Shared/Loading/Loading';
+import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
 
 const AllUsers = () => {
-    const { data: users = [], refetch } = useQuery({
+    const [deletingUser, setDeletingUser] = useState(null);
+    const { data: users = [], isLoading, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await fetch('https://assignment-twelve-mobile-resale-market-server.vercel.app/users');
@@ -11,6 +14,31 @@ const AllUsers = () => {
             return data;
         }
     })
+
+    const closeModal = () => {
+        setDeletingUser(null);
+    }
+
+    const handleDeleteUser = (user) => {
+        console.log(user);
+        fetch(`https://assignment-twelve-mobile-resale-market-server.vercel.app/users/${user._id}`,
+            {
+                method: 'DELETE',
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                    toast.success(`User ${user.name} deleted successfully`)
+                    refetch();
+                }
+            })
+
+    }
+
     const handleMakeAdmin = (id) => {
         fetch(`https://assignment-twelve-mobile-resale-market-server.vercel.app/users/admin/${id}`, {
             method: 'PUT',
@@ -27,6 +55,11 @@ const AllUsers = () => {
                 }
             })
     }
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
     return (
         <div>
             <h2 className='text-3xl'>All Users</h2>
@@ -38,7 +71,7 @@ const AllUsers = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Peron</th>
+                            <th>Person</th>
                             <th>Admin</th>
                             <th>Delete</th>
                         </tr>
@@ -55,12 +88,22 @@ const AllUsers = () => {
                                         user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>
                                     }
                                 </td>
-                                <td><button className='btn btn-xm btn-warning'>Delete</button></td>
+                                <td><label onClick={() => setDeletingUser(user)} htmlFor="confirmation-modal" className="btn btn-xs btn-error">Delete</label></td>
                             </tr>)
                         }
                     </tbody>
                 </table>
             </div>
+            {
+                deletingUser && <ConfirmationModal
+                    title={`Are you sure you want to delete`}
+                    message={`If you delete ${deletingUser.name}. It cannot be undone.`}
+                    successAction={handleDeleteUser}
+                    successButtonName="Delete"
+                    modalData={deletingUser}
+                    closeModal={closeModal}
+                ></ConfirmationModal>
+            }
         </div>
     );
 };
