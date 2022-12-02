@@ -3,7 +3,8 @@ import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
 import { useLoaderData, useNavigation } from 'react-router-dom';
 import Loading from '../../Shared/Loading/Loading';
-import CheckoutFrom from './CheckoutFrom';
+import CheckoutForm from './CheckoutForm';
+
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 // console.log(stripePromise);
@@ -23,7 +24,7 @@ const Payment = () => {
             <p className="text-xl">Please pay <strong> ${ResalePrice}</strong> for your mobile</p>
             <div className='w-96 my-12'>
                 <Elements stripe={stripePromise}>
-                    <CheckoutFrom
+                    <CheckoutForm
                         booking={booking}
                     />
                 </Elements>

@@ -7,6 +7,7 @@ const ProductCategories = () => {
         .then(res => res.json())
         .then(data => setCategories(data))
 
+    console.log(categories);
 
     return (
         <div className='mb-5'>
