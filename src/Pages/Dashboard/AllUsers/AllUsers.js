@@ -9,7 +9,7 @@ const AllUsers = () => {
     const { data: users = [], isLoading, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('https://assignment-twelve-mobile-resale-market-server.vercel.app/users');
+            const res = await fetch('https://assignment-twelve-mobile-resale-market-server-zeta.vercel.app/users');
             const data = await res.json();
             return data;
         }
@@ -21,7 +21,7 @@ const AllUsers = () => {
 
     const handleDeleteUser = (user) => {
         console.log(user);
-        fetch(`https://assignment-twelve-mobile-resale-market-server.vercel.app/users/${user._id}`,
+        fetch(`https://assignment-twelve-mobile-resale-market-server-zeta.vercel.app/users/${user._id}`,
             {
                 method: 'DELETE',
                 headers: {
@@ -40,7 +40,7 @@ const AllUsers = () => {
     }
 
     const handleMakeAdmin = (id) => {
-        fetch(`https://assignment-twelve-mobile-resale-market-server.vercel.app/users/admin/${id}`, {
+        fetch(`https://assignment-twelve-mobile-resale-market-server-zeta.vercel.app/users/admin/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

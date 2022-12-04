@@ -49,7 +49,7 @@ const SignUp = () => {
 
     const saveUser = (name, email, person) => {
         const user = { name, email, person };
-        fetch(' https://assignment-twelve-mobile-resale-market-server.vercel.app/users', {
+        fetch(' https://assignment-twelve-mobile-resale-market-server-zeta.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

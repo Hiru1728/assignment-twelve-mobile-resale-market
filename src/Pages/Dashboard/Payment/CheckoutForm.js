@@ -13,7 +13,7 @@ const CheckoutForm = ({ booking }) => {
     const { ResalePrice, email, name, _id } = booking;
 
     useEffect(() => {
-        fetch("https://assignment-twelve-mobile-resale-market-server.vercel.app/create-payment-intent", {
+        fetch("https://assignment-twelve-mobile-resale-market-server-zeta.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -79,7 +79,7 @@ const CheckoutForm = ({ booking }) => {
                 bookingId: _id,
 
             }
-            fetch('https://assignment-twelve-mobile-resale-market-server.vercel.app/payments', {
+            fetch('https://assignment-twelve-mobile-resale-market-server-zeta.vercel.app/payments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',

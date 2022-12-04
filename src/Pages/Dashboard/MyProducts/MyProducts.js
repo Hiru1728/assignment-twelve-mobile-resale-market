@@ -10,7 +10,7 @@ const MyProducts = () => {
         queryKey: ['products'],
         queryFn: async () => {
             try {
-                const res = await fetch('https://assignment-twelve-mobile-resale-market-server.vercel.app/products',
+                const res = await fetch('https://assignment-twelve-mobile-resale-market-server-zeta.vercel.app/products',
                     {
                         headers: {
                             authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -31,7 +31,7 @@ const MyProducts = () => {
 
     const handleDeleteProduct = product => {
         console.log(product);
-        fetch(`https://assignment-twelve-mobile-resale-market-server.vercel.app/products/${product._id}`,
+        fetch(`https://assignment-twelve-mobile-resale-market-server-zeta.vercel.app/products/${product._id}`,
             {
                 method: 'DELETE',
                 headers: {

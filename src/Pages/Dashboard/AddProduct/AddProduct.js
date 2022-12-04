@@ -45,7 +45,7 @@ const AddProduct = () => {
                         customerLocation: data.customerLocation,
                     }
                     // console.log(product);
-                    fetch('https://assignment-twelve-mobile-resale-market-server.vercel.app/products', {
+                    fetch('https://assignment-twelve-mobile-resale-market-server-zeta.vercel.app/products', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

@@ -41,7 +41,7 @@ const router = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <PrivateRoute><SubCategoryProducts></SubCategoryProducts></PrivateRoute>,
-                loader: ({ params }) => fetch(` https://assignment-twelve-mobile-resale-market-server.vercel.app/category/${params.id}`)
+                loader: ({ params }) => fetch(` https://assignment-twelve-mobile-resale-market-server-zeta.vercel.app/category/${params.id}`)
             }
         ]
     },
@@ -68,7 +68,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({ params }) => fetch(`https://assignment-twelve-mobile-resale-market-server.vercel.app/bookings/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-twelve-mobile-resale-market-server-zeta.vercel.app/bookings/${params.id}`)
             },
         ]
     }

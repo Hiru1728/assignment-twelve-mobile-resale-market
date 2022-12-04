@@ -25,7 +25,7 @@ const BookingModal = ({ booking, setBooking }) => {
 
         console.log(booking);
 
-        fetch('https://assignment-twelve-mobile-resale-market-server.vercel.app/booking', {
+        fetch('https://assignment-twelve-mobile-resale-market-server-zeta.vercel.app/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
